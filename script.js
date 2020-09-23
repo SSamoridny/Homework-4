@@ -1,5 +1,7 @@
 var score = 0
 
+var correct = document.querySelector('#correct')
+
 var startButton = document.querySelector('.start-btn')
 var answerOne = document.querySelector('#answer-buttons1')
 var answerTwo = document.querySelector('#answer-buttons2')
@@ -59,3 +61,13 @@ function answer4 () {
     questionContainer4.classList.add('hide')
     questionContainer5.classList.remove('hide')
 }
+
+//Answer comparrison if else statement
+correct.addEventListener('click', correctChoice)
+
+function correctChoice (){
+    if(correct){
+        console.log('You are correct!')
+    }
+}
+
