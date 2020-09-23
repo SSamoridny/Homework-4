@@ -4,10 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>New Header</h1>
+    <div class="container">
+        <!-- Question Boxes-->
+        <div id="question-container" class="hide">
+            <div id="question">QUESTION</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn btnA">Answer 1</button>
+                <button class="btn btnB">Answer 2</button>
+                <button class="btn btnC">Answer 3</button>
+                <button class="btn btnD">Answer 4</button>
+            </div>
+        </div>
+
+        <!-- Start Button -->
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn ">START QUIZ!</button>
+            <!--<button id="next-btn" class="start-btn btn ">NEXT</button>-->
+        </div>
+    </div>
+   
 </body>
     <script src="script.js"></script>
 </html>
