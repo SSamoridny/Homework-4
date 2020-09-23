@@ -31,39 +31,54 @@ function startGame () {
 //countdown timer
 
 //incorrect score -5 seconds
+var questionIndex = 1
+questionContainer1.addEventListener('click', checkAnswer)
+function checkAnswer(event) {
+        console.log(event.target.classList)
+    if( event.target.classList.contains('correct') ){
+        console.log('You have the right answer')
+    }
+    //console.log('Check Answer', event.target.id)
+    document.querySelector(`.question${questionIndex}`).classList.add('hide')
+    document.querySelector(`.question${questionIndex}`).removeEventListener('click', checkAnswer )
+    questionIndex++
+    document.querySelector(`.question${questionIndex}`).classList.remove('hide')
+    document.querySelector(`.question${questionIndex}`).addEventListener('click', checkAnswer)
+}
+
 
 //pick an answer Q1
-answerOne.addEventListener('click', answer1)
+// answerOne.addEventListener('click', answer1)
 
-function answer1 () {
-    questionContainer1.classList.add('hide')
-    questionContainer2.classList.remove('hide')
-}
+// function answer1 () {
+//     questionContainer1.classList.add('hide')
+//     questionContainer2.classList.remove('hide')
+// }
 
-//move to next question
-answerTwo.addEventListener('click', answer2)
+// //move to next question
+// answerTwo.addEventListener('click', answer2)
 
-function answer2 () {
-    questionContainer2.classList.add('hide')
-    questionContainer3.classList.remove('hide')
-}
+// function answer2 () {
+//     questionContainer2.classList.add('hide')
+//     questionContainer3.classList.remove('hide')
+// }
 
-answerThree.addEventListener('click', answer3)
+// answerThree.addEventListener('click', answer3)
 
-function answer3 () {
-    questionContainer3.classList.add('hide')
-    questionContainer4.classList.remove('hide')
-}
+// function answer3 () {
+//     questionContainer3.classList.add('hide')
+//     questionContainer4.classList.remove('hide')
+// }
 
-answerFour.addEventListener('click', answer4)
+// answerFour.addEventListener('click', answer4)
 
-function answer4 () {
-    questionContainer4.classList.add('hide')
-    questionContainer5.classList.remove('hide')
-}
+// function answer4 () {
+//     questionContainer4.classList.add('hide')
+//     questionContainer5.classList.remove('hide')
+// }
 
-//Answer comparrison if else statement
-correct.addEventListener('click', correctChoice)
+// //Answer comparrison if else statement
+// correct.addEventListener('click', correctChoice)
 
 function correctChoice (){
     if(correct){
