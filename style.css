@@ -58,6 +58,13 @@ body {
     font-size: 30px;
 }
 
-.countdown {
-    position: absolute;
+#countDown,
+#scoreBoard {
+    width: 8em;
+    height: 8em;
 }
+
+#scoreBoard {
+    float: right;
+}
+

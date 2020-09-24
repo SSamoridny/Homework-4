@@ -13,7 +13,7 @@
 <body>
     
     <button id="countDown" class="btn"><h3 class="countDown"></h3></br>TIMER</button>
-    <button class="btn"><h3 class="gameScore"></h3></br>SCORE</button>
+    <button id="scoreBoard"class="btn"><h3 class="gameScore"></h3></br>SCORE</button>
 
     <div class="container">
         
@@ -69,9 +69,15 @@
         </div>
 
         <div class="end hide">
-            <h1>Game Over</h1>
-            
-            <h1>Results</h1>
+            <h1>Game Over! Enter your name to store your Score</h1>
+            <h1 class="highScoreName">Add Name</h1>
+            <form>
+                <input placeholder="Name" id="finalScoreName" />
+                <button id="submit">Submit</button>
+                <div>
+                  <h4 id="response"></h4>
+                </div>
+              </form>
 
         </div>
 

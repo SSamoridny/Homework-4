@@ -34,8 +34,8 @@ function startGame () {
 
 
 
-//countdown timer
-var countdown = 10
+//Countdown timer
+var countdown = 21
 
 function countDownToStart() {
     countdown--
@@ -43,10 +43,11 @@ function countDownToStart() {
     if(countdown >= 0){
     document.querySelector('.countDown').innerHTML = countdown
       setTimeout ( countDownToStart, 1000)
-    }   
+    } else {
+        var gameEnd = document.querySelector('.end')
+        gameEnd.classList.remove('hide')
+    }
 }
-
-
 var questionIndex = 1
 
 questionContainer1.addEventListener('click', checkAnswer)
@@ -57,7 +58,12 @@ function checkAnswer(event) {
         console.log('You are correct')
         gameScore++
         correctTotal.innerHTML = gameScore
+    } else {
+        console.log('Wrong')
+        countdown -= 5
     }
+
+
     //console.log('Check Answer', event.target.id)
     document.querySelector(`.question${questionIndex}`).classList.add('hide')
     document.querySelector(`.question${questionIndex}`).removeEventListener('click', checkAnswer )
@@ -67,36 +73,15 @@ function checkAnswer(event) {
     
 }
 
+//High Score List
 
-//pick an answer Q1
-// answerOne.addEventListener('click', answer1)
-
-// function answer1 () {
-//     questionContainer1.classList.add('hide')
-//     questionContainer2.classList.remove('hide')
-// }
-
-// //move to next question
-// answerTwo.addEventListener('click', answer2)
-
-// function answer2 () {
-//     questionContainer2.classList.add('hide')
-//     questionContainer3.classList.remove('hide')
-// }
-
-// answerThree.addEventListener('click', answer3)
-
-// function answer3 () {
-//     questionContainer3.classList.add('hide')
-//     questionContainer4.classList.remove('hide')
-// }
-
-// answerFour.addEventListener('click', answer4)
-
-// function answer4 () {
-//     questionContainer4.classList.add('hide')
-//     questionContainer5.classList.remove('hide')
-// }
-
-// //Answer comparrison if else statement
-// correct.addEventListener('click', correctChoice)
+var scoreList = JSON.parse( localStorage.scoreList || "[]" )
+scoreList.push(gameScore)
+localStorage.scoreList = JSON.stringify( scoreList )
+var scoreList = JSON.parse( localStorage.scoreList || "[]" )
+var userList = JSON.parse( localStorage.userList || "[]" )
+for( var i=0; i<scoreList.length; i++ ){
+   var activeScore = scoreList[i]
+   var activeUser = userList[i]
+   // display...
+}
