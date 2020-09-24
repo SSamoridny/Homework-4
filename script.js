@@ -2,7 +2,7 @@ var gameScore = 0
 
 var correct = document.querySelector('#correct')
 
-var startButton = document.querySelector('.start-btn')
+var startButton = document.querySelector('#start-btn')
 var answerOne = document.querySelector('#answer-buttons1')
 var answerTwo = document.querySelector('#answer-buttons2')
 var answerThree = document.querySelector('#answer-buttons3')
@@ -10,7 +10,8 @@ var answerFour = document.querySelector('#answer-buttons4')
 var answerFive = document.querySelector('#answer-buttons5')
 var beginH1 = document.querySelector('.controls')
 var endOfGame = document.querySelector('.gameOver')
-var correctTotal = document.querySelector('.gameScore').innerHTML = gameScore
+var correctTotal = document.querySelector('.gameScore')
+correctTotal.innerHTML = gameScore
 
 
 var questionContainer1 = document.querySelector('.question1')
@@ -55,6 +56,7 @@ function checkAnswer(event) {
     if( event.target.classList.contains('correct') ){
         console.log('You are correct')
         gameScore++
+        correctTotal.innerHTML = gameScore
     }
     //console.log('Check Answer', event.target.id)
     document.querySelector(`.question${questionIndex}`).classList.add('hide')
