@@ -1,4 +1,4 @@
-var score = 0
+var gameScore = 0
 
 var correct = document.querySelector('#correct')
 
@@ -8,7 +8,9 @@ var answerTwo = document.querySelector('#answer-buttons2')
 var answerThree = document.querySelector('#answer-buttons3')
 var answerFour = document.querySelector('#answer-buttons4')
 var answerFive = document.querySelector('#answer-buttons5')
-var beginH1 = document.querySelector('.begin')
+var beginH1 = document.querySelector('.controls')
+var endOfGame = document.querySelector('.gameOver')
+var correctTotal = document.querySelector('.gameScore').innerHTML = gameScore
 
 
 var questionContainer1 = document.querySelector('.question1')
@@ -26,17 +28,33 @@ function startGame () {
     startButton.classList.add('hide')
     beginH1.classList.add('hide')
     questionContainer1.classList.remove('hide')
+    countDownToStart()
 }
 
-//countdown timer
 
-//incorrect score -5 seconds
+
+//countdown timer
+var countdown = 10
+
+function countDownToStart() {
+    countdown--
+  
+    if(countdown >= 0){
+    document.querySelector('.countDown').innerHTML = countdown
+      setTimeout ( countDownToStart, 1000)
+    }   
+}
+
+
 var questionIndex = 1
+
 questionContainer1.addEventListener('click', checkAnswer)
+
 function checkAnswer(event) {
         console.log(event.target.classList)
     if( event.target.classList.contains('correct') ){
-        console.log('You have the right answer')
+        console.log('You are correct')
+        gameScore++
     }
     //console.log('Check Answer', event.target.id)
     document.querySelector(`.question${questionIndex}`).classList.add('hide')
@@ -44,6 +62,7 @@ function checkAnswer(event) {
     questionIndex++
     document.querySelector(`.question${questionIndex}`).classList.remove('hide')
     document.querySelector(`.question${questionIndex}`).addEventListener('click', checkAnswer)
+    
 }
 
 
@@ -79,10 +98,3 @@ function checkAnswer(event) {
 
 // //Answer comparrison if else statement
 // correct.addEventListener('click', correctChoice)
-
-function correctChoice (){
-    if(correct){
-        console.log('You are correct!')
-    }
-}
-
