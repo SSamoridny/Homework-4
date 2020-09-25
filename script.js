@@ -12,7 +12,7 @@ var beginH1 = document.querySelector('.controls')
 var endOfGame = document.querySelector('.gameOver')
 var correctTotal = document.querySelector('.gameScore')
 correctTotal.innerHTML = gameScore
-
+var clearButton = document.querySelector('.clear')
 
 var questionContainer1 = document.querySelector('.question1')
 var questionContainer2 = document.querySelector('.question2')
@@ -29,6 +29,7 @@ function startGame () {
     startButton.classList.add('hide')
     beginH1.classList.add('hide')
     questionContainer1.classList.remove('hide')
+    endOfGame.classList.add('hide')
     countDownToStart()
 }
 
@@ -46,6 +47,7 @@ function countDownToStart() {
     } else {
         var gameEnd = document.querySelector('.end')
         gameEnd.classList.remove('hide')
+        endOfGame.classList.remove('hide')
     }
 }
 var questionIndex = 1
@@ -74,14 +76,28 @@ function checkAnswer(event) {
 }
 
 //High Score List
+const form = document.querySelector('form')
+const ol = document.querySelector('ol')
+const button = document.querySelector('button')
+const input1 = document.querySelector('#finalScoreName')
 
-var scoreList = JSON.parse( localStorage.scoreList || "[]" )
-scoreList.push(gameScore)
-localStorage.scoreList = JSON.stringify( scoreList )
-var scoreList = JSON.parse( localStorage.scoreList || "[]" )
-var userList = JSON.parse( localStorage.userList || "[]" )
-for( var i=0; i<scoreList.length; i++ ){
-   var activeScore = scoreList[i]
-   var activeUser = userList[i]
-   // display...
-}
+
+const liMaker = (text) => {
+    const li = document.createElement('li')
+    li.textContent = text
+    ol.appendChild(li)
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+  
+    liMaker(input1.value)
+    input1.value = ''
+  })
+
+  clearButton.addEventListener('click', function () {
+    localStorage.clear()
+    while (ol.firstChild) {
+      ol.removeChild(ol.firstChild)
+    }
+  })

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Super Quiz!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
@@ -69,10 +69,9 @@
         </div>
 
         <div class="end hide">
-            <h1>Game Over! Enter your name to store your Score</h1>
-            <h1 class="highScoreName">Add Name</h1>
+            <h1>Game Over! Enter your name and Score</h1>
             <form>
-                <input placeholder="Name" id="finalScoreName" />
+                <input placeholder="Name and Score" id="finalScoreName" />
                 <button id="submit">Submit</button>
                 <div>
                   <h4 id="response"></h4>
@@ -81,16 +80,22 @@
 
         </div>
 
+
+
         <!-- Start Button -->
         <div class="controls">
             <h1 class="begin">JavaSript Quiz! Are you ready to start?</h1>
             <button id="start-btn" class="start-btn btn ">START QUIZ!</button>
         </div>
 
-        <!--<div class="gameOver">
-            <h1 class="end">Your final score is</h1>
-        </div>-->
-        
+        <div class="gameOver hide">
+            <h2>High Scores</h2>
+            <ol></ol>
+            
+            <button class="btn clear">Clear All</button>
+            <!--<button id="start-btn" class="start-btn btn ">Play Again!</button>-->
+        </div>
+
     </div>
         <!--<button id="start-btn countDown" class="start-btn btn "><h3 class="countDown"></h3></br>TIMER</button>
         <button id="start-btn countDown" class="start-btn btn "><h3 class="gameScore"></h3></br>SCORE</button>-->
