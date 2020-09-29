@@ -1,4 +1,4 @@
-//So I have gone back after a few days of learning to make sure that I understand what exactly I did in my assignment. I Creation of variables. I did this to start my coding while trying to think ahead. To be honest I do not know if all of them are needed but that will come from learning and writing cleaner code.
+//So I have gone back after a few days of learning to make sure that I understand what exactly I did in my assignment. Creation of variables, I did this to start my coding while trying to think ahead. To be honest I do not know if all of them are needed but that will come from learning and writing cleaner code.
 var gameScore = 0
 
 var correct = document.querySelector('#correct')
@@ -24,7 +24,7 @@ var questionContainer5 = document.querySelector('.question5')
 
 //Start Button
 startButton.addEventListener('click', startGame)
-//There are the commands that the start button will trigger to start the game. It will hide itself and the H! and reveal question 1
+//There are the commands that the start button will trigger to start the game. It will hide itself and the H1 and reveal question 1
 function startGame () {
     console.log('Started')
     startButton.classList.add('hide')
@@ -70,7 +70,7 @@ function checkAnswer(event) {
     }
 
 
-    //console.log('Check Answer', event.target.id) //This is where the code cycles through the questions upon clicking. Fil (my instructor) helped me with this 
+    //This is where the code cycles through the questions upon clicking. Fil (my instructor) helped me with this 
     document.querySelector(`.question${questionIndex}`).classList.add('hide')
     document.querySelector(`.question${questionIndex}`).removeEventListener('click', checkAnswer )
     questionIndex++
@@ -79,7 +79,7 @@ function checkAnswer(event) {
     
 }
 
-//High Score List This part is where my code started to fall apart as I tried to add local storage
+//High Score List This part is where my code started to fall apart as I tried to add local storage but I was able to pull it together. Here variables are created to get the input from the box and create an array for the items to be stored in local storage.
 var form = document.querySelector('form')
 var ol = document.querySelector('ol')
 var button = document.querySelector('button')
@@ -115,6 +115,7 @@ var liMaker = (text) => {
     liMaker(item)
   })
 
+  //Clear button which is self explanitory
   clearButton.addEventListener('click', function () {
     localStorage.clear()
     while (ol.firstChild) {
