@@ -1,3 +1,4 @@
+//So I have gone back after a few days of learning to make sure that I understand what exactly I did in my assignment. I Creation of variables. I did this to start my coding while trying to think ahead. To be honest I do not know if all of them are needed but that will come from learning and writing cleaner code.
 var gameScore = 0
 
 var correct = document.querySelector('#correct')
@@ -23,7 +24,7 @@ var questionContainer5 = document.querySelector('.question5')
 
 //Start Button
 startButton.addEventListener('click', startGame)
-
+//There are the commands that the start button will trigger to start the game. It will hide itself and the H! and reveal question 1
 function startGame () {
     console.log('Started')
     startButton.classList.add('hide')
@@ -35,7 +36,7 @@ function startGame () {
 
 
 
-//Countdown timer
+//Countdown timer. This is kind of the opposite of the start function where it now reveals the end of game messaging
 var countdown = 21
 
 function countDownToStart() {
@@ -50,6 +51,8 @@ function countDownToStart() {
         endOfGame.classList.remove('hide')
     }
 }
+
+//This where I begin to go through the questions and actually determine if they are correct or not
 var questionIndex = 1
 
 questionContainer1.addEventListener('click', checkAnswer)
@@ -61,12 +64,13 @@ function checkAnswer(event) {
         gameScore++
         correctTotal.innerHTML = gameScore
     } else {
+      //This is the simple code to remove 5 seconds from the game clock
         console.log('Wrong')
         countdown -= 5
     }
 
 
-    //console.log('Check Answer', event.target.id)
+    //console.log('Check Answer', event.target.id) //This is where the code cycles through the questions upon clicking. Fil (my instructor) helped me with this 
     document.querySelector(`.question${questionIndex}`).classList.add('hide')
     document.querySelector(`.question${questionIndex}`).removeEventListener('click', checkAnswer )
     questionIndex++
@@ -75,24 +79,40 @@ function checkAnswer(event) {
     
 }
 
-//High Score List
-const form = document.querySelector('form')
-const ol = document.querySelector('ol')
-const button = document.querySelector('button')
-const input1 = document.querySelector('#finalScoreName')
+//High Score List This part is where my code started to fall apart as I tried to add local storage
+var form = document.querySelector('form')
+var ol = document.querySelector('ol')
+var button = document.querySelector('button')
+var input = document.querySelector('#item')
+var itemsArray = []
 
+var itemsArray = localStorage.getItem('items')
+  ? JSON.parse(localStorage.getItem('items'))
+  : []
 
-const liMaker = (text) => {
-    const li = document.createElement('li')
+//Creating the local storage array where my input will be held and used for display
+localStorage.setItem('items', JSON.stringify(itemsArray))
+var data = JSON.parse(localStorage.getItem('items'))
+
+//Appending the child to add a li to the ol with the name and score
+var liMaker = (text) => {
+    var li = document.createElement('li')
     li.textContent = text
     ol.appendChild(li)
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault()
-  
-    liMaker(input1.value)
-    input1.value = ''
+//Upon clicking submit the liMaker function runs and adds the li element with the value given in finalScoreName which is now in input1
+  form.addEventListener('submit', function (event) {
+    event.preventDefault()
+
+    itemsArray.push(input.value)
+    localStorage.setItem('items', JSON.stringify(itemsArray))
+    liMaker(input.value)
+    input = input.value = ''
+  })
+
+  data.forEach((item) => {
+    liMaker(item)
   })
 
   clearButton.addEventListener('click', function () {
