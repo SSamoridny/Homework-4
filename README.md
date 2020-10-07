@@ -1,5 +1,6 @@
 JavaScript Quiz Game
 
+https://ssamoridny.github.io/JavaScript-Quiz-Game/
 
 Technologies Used:
 - HTML
