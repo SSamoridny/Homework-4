@@ -21,3 +21,5 @@ This Quiz has 5 questions on the topic of JavaScript and I used some basic CSS t
  
  Thank you,
  Shaun Samoridny
+
+![Quiz Game](https://user-images.githubusercontent.com/30538162/95387306-c442ab00-08ad-11eb-83f7-a4786909ad4f.png)
